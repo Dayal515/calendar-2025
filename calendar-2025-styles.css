@@ -1,0 +1,108 @@
+/* --- CSS Variables for Easy Theming --- */
+        :root {
+            --primary-color: #007bff;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --light-gray: #f0f0f0;
+            --dark-gray: #888;
+            --border-radius: 12px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Basic Setup --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f7f6;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        /* --- Main Calendar Container --- */
+        .calendar-container {
+            width: 100%;
+            max-width: 400px;
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        /* --- Calendar Header: Month and Arrows --- */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .month-year {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .nav-arrow {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+        }
+
+        /* --- Calendar Grid: Weekdays and Days --- */
+        .calendar-grid {
+            padding: 20px;
+        }
+
+        .weekdays, .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            
+        }
+
+        .weekdays {
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .weekday, .day {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            border: 1px solid #6600ff;
+            border-radius: 5px;
+        }
+        
+        /* --- Individual Day Styling --- */
+        .day {
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .day:not(.empty):hover {
+            background-color: var(--light-gray);
+        }
+        /* The currently selected/active day */
+        .day.active {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+        }
